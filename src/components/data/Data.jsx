@@ -1,373 +1,53 @@
-import { eventWrapper } from "@testing-library/user-event/dist/utils";
-
 export const navList = [
   {
+    id: 1,
     path: "/",
     text: "Home",
   },
   {
+    id: 2,
     path: "/about",
     text: "About",
   },
   {
+    id: 3,
     path: "/services",
     text: "Services",
   },
   {
-    path: "/event",
-    text: "Event",
+    id: 4,
+    path: "/rooms",
+    text: "Rooms",
   },
   {
-    path: "/menu",
-    text: "Menu",
+    id: 5,
+    path: "/page",
+    text: "Page",
+    subItems: [
+      {
+        id: 51,
+        path: "/booking",
+        text: "Booking",
+      },
+      {
+        id: 52,
+        path: "/team",
+        text: "Our Team",
+      },
+      {
+        id: 53,
+        path: "/testimonial",
+        text: "Testimonial",
+      },
+    ],
   },
   {
-    path: "/blog",
-    text: "Blog",
-  },
-  {
+    id: 6,
     path: "/contact",
     text: "Contact",
   },
 ];
-
-export const features = [
-  {
-    icon: <i className="fas fa-share text-primary me-2"></i>,
-    text: "Fresh and Fast food Delivery",
-  },
-  {
-    icon: <i className="fas fa-share text-primary me-2"></i>,
-    text: "24/7 Customer Support",
-  },
-  {
-    icon: <i className="fas fa-share text-primary me-2"></i>,
-    text: "Easy Customization Options",
-  },
-  {
-    icon: <i className="fas fa-share text-primary me-2"></i>,
-    text: "Delicious Deals for Delicious Meals",
-  },
-];
-
-export const faces = [
-  {
-    name: "HAPPY CUSTOMERS",
-    icon: <i className="fas fa-users fa-4x mb-4 text-white"></i>,
-    counter: "845",
-  },
-  {
-    name: "EXPERT CHEFS",
-    icon: <i className="fas fa-users-cog fa-4x mb-4 text-white"></i>,
-    counter: "105",
-  },
-  {
-    name: "EVENTS COMPLETE",
-    icon: <i className="fas fa-check fa-4x mb-4 text-white"></i>,
-    counter: "245",
-  },
-];
-
-export const services = [
-  {
-    icon: <i className="fas fa-cheese fa-7x text-primary mb-4"></i>,
-    name: "Weding Services",
-    discription: "Contrary to popular belief, ipsum is not simply random.",
-    btn: "Read More",
-  },
-  {
-    icon: <i className="fas fa-pizza-slice fa-7x text-primary mb-4"></i>,
-    name: "Corporate Catering",
-    discription: "Contrary to popular belief, ipsum is not simply random.",
-    btn: "Read More",
-  },
-  {
-    icon: <i className="fas fa-hotdog fa-7x text-primary mb-4"></i>,
-    name: "Cocktail Reception",
-    discription: "Contrary to popular belief, ipsum is not simply random.",
-    btn: "Read More",
-  },
-
-  {
-    icon: <i className="fas fa-hamburger fa-7x text-primary mb-4"></i>,
-    name: "Bento Catering",
-    discription: "Contrary to popular belief, ipsum is not simply random.",
-    btn: "Read More",
-  },
-  {
-    icon: <i className="fas fa-wine-glass-alt fa-7x text-primary mb-4"></i>,
-    name: "Pub Party",
-    discription: "Contrary to popular belief, ipsum is not simply random.",
-    btn: "Read More",
-  },
-
-  {
-    icon: <i className="fas fa-walking fa-7x text-primary mb-4"></i>,
-    name: "Home Delivery",
-    discription: "Contrary to popular belief, ipsum is not simply random.",
-    btn: "Read More",
-  },
-  {
-    icon: <i className="fas fa-wheelchair fa-7x text-primary mb-4"></i>,
-    name: "Sit-down Catering",
-    discription: "Contrary to popular belief, ipsum is not simply random.",
-    btn: "Read More",
-  },
-
-  {
-    icon: <i className="fas fa-utensils fa-7x text-primary mb-4"></i>,
-    name: "Buffet Catering",
-    discription: "Contrary to popular belief, ipsum is not simply random.",
-    btn: "Read More",
-  },
-];
-export const event = [
-  {
-    icon: [<i className="fas fa-search-plus text-dark fa-2x"></i>],
-    image: "../assets/img/event-1.jpg",
-    category: "wedding",
-  },
-  {
-    icon: [<i className="fas fa-search-plus text-dark fa-2x"></i>],
-    image: "../assets/img/event-2.jpg",
-    category: "corporate",
-  },
-  {
-    icon: [<i className="fas fa-search-plus text-dark fa-2x"></i>],
-    image: "../assets/img/event-3.jpg",
-    category: "wedding",
-  },
-  {
-    icon: [<i className="fas fa-search-plus text-dark fa-2x"></i>],
-    image: "../assets/img/event-4.jpg",
-    category: "corporate",
-  },
-  {
-    icon: [<i className="fas fa-search-plus text-dark fa-2x"></i>],
-    image: "../assets/img/event-5.jpg",
-    category: "buffet",
-  },
-  {
-    icon: [<i className="fas fa-search-plus text-dark fa-2x"></i>],
-    image: "../assets/img/event-6.jpg",
-    category: "cocktail",
-  },
-  {
-    icon: [<i className="fas fa-search-plus text-dark fa-2x"></i>],
-    image: "../assets/img/event-7.jpg",
-    category: "buffet",
-  },
-  {
-    icon: [<i className="fas fa-search-plus text-dark fa-2x"></i>],
-    image: "../assets/img/event-8.jpg",
-    category: "cocktail",
-  },
-];
-
-export const menu = [
-  {
-    id: 1,
-    name: "Paneer",
-    price: "90",
-    content:
-      "Consectetur adipiscing elit sed dwso eiusmod tempor incididunt ut labore.",
-    img: "../assets/img/menu-01.jpg",
-    category: "starter",
-    btn: "Add To Cart",
-  },
-  {
-    id: 2,
-    name: "Sweet Potato",
-    price: "90",
-    content:
-      "Consectetur adipiscing elit sed dwso eiusmod tempor incididunt ut labore.",
-    img: "../assets/img/menu-02.jpg",
-    category: "starter",
-    btn: "Add To Cart",
-  },
-  {
-    id: 3,
-    name: "Sabudana Tikki",
-    price: "90",
-    content:
-      "Consectetur adipiscing elit sed dwso eiusmod tempor incididunt ut labore.",
-    img: "../assets/img/menu-03.jpg",
-    category: "starter",
-    btn: "Add To Cart",
-  },
-  {
-    id: 4,
-    name: "Pizza",
-    price: "90",
-    content:
-      "Consectetur adipiscing elit sed dwso eiusmod tempor incididunt ut labore.",
-    img: "../assets/img/menu-04.jpg",
-    category: "starter",
-    btn: "Add To Cart",
-  },
-  {
-    id: 5,
-    name: "Bacon",
-    price: "90",
-    content:
-      "Consectetur adipiscing elit sed dwso eiusmod tempor incididunt ut labore.",
-    img: "../assets/img/menu-05.jpg",
-    category: "starter",
-    btn: "Add To Cart",
-  },
-  {
-    id: 6,
-    name: "Chicken",
-    price: "90",
-    content:
-      "Consectetur adipiscing elit sed dwso eiusmod tempor incididunt ut labore.",
-    img: "../assets/img/menu-06.jpg",
-    category: "starter",
-    btn: "Add To Cart",
-  },
-  {
-    id: 7,
-    name: "Blooming",
-    price: "90",
-    content:
-      "Consectetur adipiscing elit sed dwso eiusmod tempor incididunt ut labore.",
-    img: "../assets/img/menu-07.jpg",
-    category: "starter",
-    btn: "Add To Cart",
-  },
-  {
-    id: 8,
-    name: "Sweet",
-    price: "90",
-    content:
-      "Consectetur adipiscing elit sed dwso eiusmod tempor incididunt ut labore.",
-    img: "../assets/img/menu-08.jpg",
-    category: "starter",
-    btn: "Add To Cart",
-  },
-  {
-    id: 9,
-    name: "Argentinian",
-    price: "90",
-    content:
-      "Consectetur adipiscing elit sed dwso eiusmod tempor incididunt ut labore.",
-    img: "../assets/img/menu-09.jpg",
-    category: "maincourse",
-    btn: "Add To Cart",
-  },
-  {
-    id: 10,
-    name: "Crispy",
-    price: "90",
-    content:
-      "Consectetur adipiscing elit sed dwso eiusmod tempor incididunt ut labore.",
-    img: "../assets/img/menu-10.jpg",
-    category: "maincourse",
-    btn: "Add To Cart",
-  },
-  {
-    id: 11,
-    name: "Lemon",
-    price: "90",
-    content:
-      "Consectetur adipiscing elit sed dwso eiusmod tempor incididunt ut labore.",
-    img: "../assets/img/menu-01.jpg",
-    category: "maincourse",
-    btn: "Add To Cart",
-  },
-  {
-    id: 12,
-    name: "Blooming",
-    price: "90",
-    content:
-      "Consectetur adipiscing elit sed dwso eiusmod tempor incididunt ut labore.",
-    img: "../assets/img/menu-04.jpg",
-    category: "ourspecials",
-    btn: "Add To Cart",
-  },
-  {
-    id: 13,
-    name: "Paneer",
-    price: "90",
-    content:
-      "Consectetur adipiscing elit sed dwso eiusmod tempor incididunt ut labore.",
-    img: "../assets/img/menu-01.jpg",
-    category: "ourspecials",
-    btn: "Add To Cart",
-  },
-  {
-    id: 14,
-    name: "Crispy Water",
-    price: "90",
-    content:
-      "Consectetur adipiscing elit sed dwso eiusmod tempor incididunt ut labore.",
-    img: "../assets/img/menu-03.jpg",
-    category: "drinks",
-    btn: "Add To Cart",
-  },
-  {
-    id: 15,
-    name: "Orange Juice",
-    price: "90",
-    content:
-      "Consectetur adipiscing elit sed dwso eiusmod tempor incididunt ut labore.",
-    img: "../assets/img/menu-09.jpg",
-    category: "drinks",
-    btn: "Add To Cart",
-  },
-  {
-    id: 16,
-    name: "Crispy Water",
-    price: "90",
-    content:
-      "Consectetur adipiscing elit sed dwso eiusmod tempor incididunt ut labore.",
-    img: "../assets/img/menu-10.jpg",
-    category: "offers",
-    btn: "Add To Cart",
-  },
-  {
-    id: 17,
-    name: "Juice",
-    price: "90",
-    content:
-      "Consectetur adipiscing elit sed dwso eiusmod tempor incididunt ut labore.",
-    img: "../assets/img/menu-02.jpg",
-    category: "drinks",
-    btn: "Add To Cart",
-  },
-  {
-    id: 18,
-    name: "Apple Juice",
-    price: "90",
-    content:
-      "Consectetur adipiscing elit sed dwso eiusmod tempor incididunt ut labore.",
-    img: "../assets/img/menu-01.jpg",
-    category: "drinks",
-    btn: "Add To Cart",
-  },
-  {
-    id: 19,
-    name: "Paneer",
-    price: "90",
-    content:
-      "Consectetur adipiscing elit sed dwso eiusmod tempor incididunt ut labore.",
-    img: "../assets/img/menu-01.jpg",
-    category: "maincourse",
-    btn: "Add To Cart",
-  },
-  {
-    id: 20,
-    name: "Lemon",
-    price: "90",
-    content:
-      "Consectetur adipiscing elit sed dwso eiusmod tempor incididunt ut labore.",
-    img: "../assets/img/menu-01.jpg",
-    category: "offers",
-    btn: "Add To Cart",
-  },
-];
-
-export const footerIcon = [
+export const socialIcons = [
   {
     icon: <i className="fab fa-facebook-f"></i>,
   },
@@ -380,100 +60,277 @@ export const footerIcon = [
   {
     icon: <i className="fab fa-linkedin-in"></i>,
   },
-];
-
-export const footerUnitItem = [
   {
-    icon: <i className="fa fa-check text-primary me-2"></i>,
-    name: "Cheese Burger",
-  },
-  {
-    icon: <i className="fa fa-check text-primary me-2"></i>,
-    name: "Sandwitch",
-  },
-  {
-    icon: <i className="fa fa-check text-primary me-2"></i>,
-    name: "Paneer Burger",
-  },
-  {
-    icon: <i className="fa fa-check text-primary me-2"></i>,
-    name: "Special Sweet",
+    icon: <i className="fab fa-youtube"></i>,
   },
 ];
 
-export const footerUnitContact = [
+export const carouselData = [
   {
-    icon: <i className="fa fa-map-marker-alt text-primary me-2"></i>,
+    img: "../assets/img/carousel-1.jpg",
+    title: "Discover A Brand Luxurious Hotel",
+    subtitle: "luxury living",
+    btn1: "Our Room",
+    btn2: "Book Room",
+  },
+  {
+    img: "../assets/img/carousel-2.jpg",
+    title: "Discover A Brand Luxurious Hotel",
+    subtitle: "luxury living",
+    btn1: "Our Room",
+    btn2: "Book Room",
+  },
+];
+export const about = [
+  {
+    icon: <i class="fa fa-hotel fa-2x text-primary mb-2"></i>,
+    text: "Rooms",
+    count: "7861",
+  },
+  {
+    icon: <i class="fa fa-users fa-2x text-primary mb-2"></i>,
+    text: "Staffs",
+    count: "1234",
+  },
+  {
+    icon: <i class="fa fa-users-cog fa-2x text-primary mb-2"></i>,
+    text: "Clients",
+    count: "4321",
+  },
+];
+
+export const services = [
+  {
+    icon: <i class="fa fa-hotel fa-2x text-primary"></i>,
+    name: "Rooms & Appartment",
+    discription: "Contrary to popular belief, ipsum is not simply random.",
+  },
+  {
+    icon: <i class="fa fa-utensils fa-2x text-primary"></i>,
+    name: "Food & Restaurant",
+    discription: "Contrary to popular belief, ipsum is not simply random.",
+  },
+  {
+    icon: <i class="fa fa-spa fa-2x text-primary"></i>,
+    name: "Spa & Fitness",
+    discription: "Contrary to popular belief, ipsum is not simply random.",
+  },
+
+  {
+    icon: <i class="fa fa-swimmer fa-2x text-primary"></i>,
+    name: "Sports & Gaming",
+    discription: "Contrary to popular belief, ipsum is not simply random.",
+  },
+  {
+    icon: <i class="fa fa-glass-cheers fa-2x text-primary"></i>,
+    name: "Event & Party",
+    discription: "Contrary to popular belief, ipsum is not simply random.",
+  },
+
+  {
+    icon: <i class="fa fa-dumbbell fa-2x text-primary"></i>,
+    name: "GYM & Yoga",
+    discription: "Contrary to popular belief, ipsum is not simply random.",
+  },
+];
+export const team = [
+  {
+    image: "../assets/img/team-1.jpg",
+    name: "Full Name",
+    designation: "Designation",
+  },
+  {
+    image: "../assets/img/team-2.jpg",
+    name: "Full Name",
+    designation: "Designation",
+  },
+  {
+    image: "../assets/img/team-3.jpg",
+    name: "Full Name",
+    designation: "Designation",
+  },
+  {
+    image: "../assets/img/team-3.jpg",
+    name: "Full Name",
+    designation: "Designation",
+  },
+];
+
+export const footerItem = [
+  {
+    id: 1,
+    header: "Company",
+    UnitItem: [
+      {
+        name: "About Us",
+      },
+      {
+        name: "Contact Us",
+      },
+      {
+        name: "Privacy Policy",
+      },
+      {
+        name: "Terms & Condition",
+      },
+      {
+        name: "Support",
+      },
+    ],
+  },
+  {
+    id: 2,
+    header: "Services",
+    UnitItem: [
+      {
+        name: "Food & Restaurant",
+      },
+      {
+        name: "Spa & Fitness",
+      },
+      {
+        name: "Sports & Gaming",
+      },
+      {
+        name: "Event & Party",
+      },
+      {
+        name: "GYM & Yoga",
+      },
+    ],
+  },
+];
+
+export const footerContact = [
+  {
+    icon: <i className="fa fa-map-marker-alt me-3"></i>,
     name: "123 Street, New York, USA",
   },
   {
-    icon: <i className="fa fa-phone-alt text-primary me-2"></i>,
-    name: "(+012) 3456 7890 123",
+    icon: <i className="fa fa-phone-alt me-3"></i>,
+    name: "+012 345 67890",
   },
   {
-    icon: <i className="fas fa-envelope text-primary me-2"></i>,
+    icon: <i className="fa fa-envelope me-3"></i>,
     name: "info@example.com",
-  },
-  {
-    icon: <i className="fa fa-clock text-primary me-2"></i>,
-    name: "26/7 Hours Service",
-  },
-];
-export const footergallery = [
-  {
-    img: "../assets/img/menu-01.jpg",
-  },
-  {
-    img: "../assets/img/menu-02.jpg",
-  },
-  {
-    img: "../assets/img/menu-03.jpg",
-  },
-  {
-    img: "../assets/img/menu-04.jpg",
-  },
-  {
-    img: "../assets/img/menu-05.jpg",
-  },
-  {
-    img: "../assets/img/menu-06.jpg",
   },
 ];
 
 export const contact = [
   {
-    icon: <i className="fas fa-map-marker-alt fa-2x text-primary me-4"></i>,
-    title: "Address",
-    address: "123 Street, New York, USA",
+    icon: <i class="fa fa-envelope-open text-primary me-2"></i>,
+    title: "Booking",
+    email: "book@example.com",
   },
   {
-    icon: <i className="fas fa-envelope fa-2x text-primary me-4"></i>,
-    title: "Mail Us",
-    address: "info@example.com",
+    icon: <i class="fa fa-envelope-open text-primary me-2"></i>,
+    title: "Technical",
+    email: "tech@example.com",
   },
   {
-    icon: <i className="fa fa-phone-alt fa-2x text-primary me-4"></i>,
-    title: "Telephone",
-    address: "(+012) 3456 7890 123",
+    icon: <i class="fa fa-envelope-open text-primary me-2"></i>,
+    title: "General",
+    email: "info@example.com",
   },
 ];
-export const blog = [
+export const testimonial = [
   {
-    name: "How to get more test in your food from",
-    img: "../assets/img/blog-1.jpg",
-    day: "16",
-    month: "Sep",
+    description:
+      "Tempor stet labore dolor clita stet diam amet ipsum dolor duo ipsum rebum stet dolor amet diam stet. Est stet ea lorem amet est kasd kasd et erat magna eos",
+    name: "Client Name",
+    profession: "Profession",
+    icon: (
+      <i class="fa fa-quote-right fa-3x text-primary position-absolute end-0 bottom-0 me-4 mb-n1"></i>
+    ),
+    img: "../assets/img/testimonial-1.jpg",
   },
   {
-    name: "How to get more test in your food from",
-    img: "../assets/img/blog-2.jpg",
-    day: "16",
-    month: "Sep",
+    description:
+      "Tempor stet labore dolor clita stet diam amet ipsum dolor duo ipsum rebum stet dolor amet diam stet. Est stet ea lorem amet est kasd kasd et erat magna eos",
+    name: "Client Name",
+    profession: "Profession",
+    icon: (
+      <i class="fa fa-quote-right fa-3x text-primary position-absolute end-0 bottom-0 me-4 mb-n1"></i>
+    ),
+    img: "../assets/img/testimonial-2.jpg",
   },
   {
-    name: "How to get more test in your food from",
-    img: "../assets/img/blog-3.jpg",
-    day: "16",
-    month: "Sep",
+    description:
+      "Tempor stet labore dolor clita stet diam amet ipsum dolor duo ipsum rebum stet dolor amet diam stet. Est stet ea lorem amet est kasd kasd et erat magna eos",
+    name: "Client Name",
+    profession: "Profession",
+    icon: (
+      <i class="fa fa-quote-right fa-3x text-primary position-absolute end-0 bottom-0 me-4 mb-n1"></i>
+    ),
+    img: "../assets/img/testimonial-3.jpg",
+  },
+];
+
+export const roomItems = [
+  {
+    img: "../assets/img/room-1.jpg",
+    price: "$110/night",
+    name: "Junior Suit",
+    star: [
+      <small class="fa fa-star text-primary"></small>,
+      <small class="fa fa-star text-primary"></small>,
+      <small class="fa fa-star text-primary"></small>,
+      <small class="fa fa-star text-primary"></small>,
+      <small class="fa fa-star text-primary"></small>,
+    ],
+    description:
+      "Erat ipsum justo amet duo et elitr dolor, est duo duo eos lorem sed diam stet diam sed stet lorem.",
+    yellowbtn: "View Detail",
+    darkbtn: "book now",
+  },
+
+  {
+    img: "../assets/img/room-2.jpg",
+    price: "$110/night",
+    name: "Executive Suite",
+    star: [
+      <small class="fa fa-star text-primary"></small>,
+      <small class="fa fa-star text-primary"></small>,
+      <small class="fa fa-star text-primary"></small>,
+      <small class="fa fa-star text-primary"></small>,
+      <small class="fa fa-star text-primary"></small>,
+    ],
+    description:
+      "Erat ipsum justo amet duo et elitr dolor, est duo duo eos lorem sed diam stet diam sed stet lorem.",
+    yellowbtn: "View Detail",
+    darkbtn: "book now",
+  },
+  {
+    img: "../assets/img/room-3.jpg",
+    price: "$110/night",
+    name: "Super Deluxe",
+    star: [
+      <small class="fa fa-star text-primary"></small>,
+      <small class="fa fa-star text-primary"></small>,
+      <small class="fa fa-star text-primary"></small>,
+      <small class="fa fa-star text-primary"></small>,
+      <small class="fa fa-star text-primary"></small>,
+    ],
+    description:
+      "Erat ipsum justo amet duo et elitr dolor, est duo duo eos lorem sed diam stet diam sed stet lorem.",
+    yellowbtn: "View Detail",
+    darkbtn: "book now",
+  },
+];
+
+export const facility = [
+  {
+    icon: <i class="fa fa-bed text-primary me-2"></i>,
+    quantity: 3,
+    facility: "bed",
+  },
+  {
+    icon: <i class="fa fa-bath text-primary me-2"></i>,
+    quantity: 2,
+    facility: "bath",
+  },
+  {
+    icon: <i class="fa fa-wifi text-primary me-2"></i>,
+    facility: "Wifi",
   },
 ];
